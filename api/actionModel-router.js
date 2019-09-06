@@ -5,7 +5,7 @@ const dbMappers = require("../data/helpers/mappers");
 const dbProject = require("../data/helpers/projectModel");
 router.use(express.json());
 // server.use(validateUserId); dont forget to add in what youre using
-router.use(validateActionPost);
+// router.use(validateActionPost);
 // server.use(validatePost);
 
 router.get("/", (req, res) => {
@@ -97,7 +97,6 @@ function validateActionPost(req, res, next) {
   } else if (!req.body.project_id) {
     res.status(400).json({ message: "missing required project ID field" });
   } else if (!req.body.description) {
-    // or if it is > 128 characters
     res.status(400).json({ message: "missing required description field" });
   } else if (!req.body.notes) {
     res.status(400).json({ message: "missing required notes field" });

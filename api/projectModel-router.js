@@ -4,9 +4,9 @@ const dbAction = require("../data/helpers/actionModel");
 const dbMappers = require("../data/helpers/mappers");
 const dbProject = require("../data/helpers/projectModel");
 router.use(express.json());
-router.use(validateProjectId);
-// router.use(validateActionPost);
-// server.use(validatePost);
+// router.use(validateProjectId);
+// router.use(validateProjectPost);
+// dont use this bc it makes every route need
 
 router.get("/", (req, res) => {
   res.status(200).json({ api: "API is up and running!" });
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res, next) => {
   const id = req.params.id;
   dbProject
-    .get(id)
+    .getProjectActions(id)
     .then(project => {
       res.status(200).json(project);
     })
@@ -41,7 +41,6 @@ router.put("/:id", validateProjectId, (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
   if (!name && !description) {
-    // can use a return to shortcut the funciton instead of an else
     return res.status(400).json({ error: "Requires some changes" });
   }
   dbProject
