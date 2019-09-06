@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+We learned about express middleware which allows us to build middleware functions to condense our code within our CRUD requests - and express routing which allows us to build endpoints
+
 - [ ] Describe Middleware?
+
+They are functions that we can create to implement within our CRUD operations. They condense our code and make it easier to read for other developers. This is an example of custom middleware, where you can build the functions yourself with the parameters needed for each operation.
 
 - [ ] Describe a Resource?
 
+Never heard this before
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+They can return a response with a 200 status. For example, res.status(200).json({ api: "API is up and running!" }); This tells the client that the response is successfull and that the API port is up and running.
+
 - [ ] How can we partition our application into sub-applications?
+
+We can separate our index.js and server.js files and organize it that way for clearer code
 
 ## Project Setup
 
