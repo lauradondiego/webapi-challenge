@@ -16,8 +16,8 @@ router.get("/:id", (req, res, next) => {
   const id = req.params.id;
   dbAction
     .get(id)
-    .then(actions => {
-      res.status(200).json(actions);
+    .then(action => {
+      res.status(200).json(action);
     })
     .catch(error => next(error));
 });
